@@ -1,92 +1,126 @@
+"use client";
+
+import { motion } from "framer-motion";
+import {
+  BrainCircuit,
+  Landmark,
+  Shield,
+  Cpu,
+} from "lucide-react";
+
+const highlights = [
+  {
+    icon: BrainCircuit,
+    title: "AI First",
+    description:
+      "Artificial Intelligence powers every trading decision.",
+    color: "text-cyan-400",
+  },
+  {
+    icon: Landmark,
+    title: "Indian Markets",
+    description:
+      "Designed specifically for NSE, BSE and Dhan integration.",
+    color: "text-blue-400",
+  },
+  {
+    icon: Cpu,
+    title: "Enterprise Ready",
+    description:
+      "Modular architecture built for long-term scalability.",
+    color: "text-purple-400",
+  },
+  {
+    icon: Shield,
+    title: "Secure Platform",
+    description:
+      "Security and reliability are core design principles.",
+    color: "text-green-400",
+  },
+];
+
 export default function About() {
   return (
-    <section className="bg-[#050816] py-24">
+    <section className="relative bg-[#050816] py-24">
+
       <div className="mx-auto grid max-w-7xl items-center gap-16 px-6 lg:grid-cols-2">
 
-        {/* Left Side */}
+        <motion.div
+          initial={{ opacity: 0, x: -40 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.7 }}
+          viewport={{ once: true }}
+        >
 
-        <div>
-
-          <p className="font-semibold uppercase tracking-[6px] text-cyan-400">
+          <span className="rounded-full border border-cyan-500/30 bg-cyan-500/10 px-5 py-2 text-sm font-semibold tracking-wide text-cyan-400">
             ABOUT PAM AI
-          </p>
+          </span>
 
-          <h2 className="mt-5 text-5xl font-black text-white">
-            India's Next Generation AI Trading Platform
+          <h2 className="mt-6 text-5xl font-black leading-tight text-white">
+            Building India's Next Generation
+            <span className="block bg-gradient-to-r from-cyan-400 to-purple-500 bg-clip-text text-transparent">
+              AI Trading Ecosystem
+            </span>
           </h2>
 
-          <p className="mt-8 text-lg leading-9 text-gray-400">
-            PAM AI Platform is being built as a complete ecosystem for
-            traders and investors. Instead of using many different
-            applications, everything will be available in one intelligent
+          <p className="mt-8 text-lg leading-8 text-gray-400">
+            PAM AI Platform is an enterprise-grade ecosystem that combines
+            artificial intelligence, quantitative analytics, algorithmic
+            trading, research, education and automation into one unified
             platform.
           </p>
 
-          <p className="mt-6 text-lg leading-9 text-gray-400">
-            Whether you are a beginner or a professional trader, our
-            platform combines Artificial Intelligence, Professional
-            Education, Stock Market Research, Trading Bots,
-            Portfolio Analytics and Risk Management into one
-            premium experience.
+          <p className="mt-6 text-lg leading-8 text-gray-400">
+            Our mission is to help traders, investors and institutions make
+            smarter, faster and more disciplined decisions using modern AI
+            technology built specifically for the Indian financial markets.
           </p>
 
-          <div className="mt-10 flex flex-wrap gap-4">
+        </motion.div>
 
-            <span className="rounded-full bg-cyan-500/10 px-5 py-2 text-cyan-400">
-              AI Assistant
-            </span>
+        <div className="grid gap-6 sm:grid-cols-2">
 
-            <span className="rounded-full bg-cyan-500/10 px-5 py-2 text-cyan-400">
-              Trading Bots
-            </span>
+{highlights.map((item, index) => {
+  const Icon = item.icon;
 
-            <span className="rounded-full bg-cyan-500/10 px-5 py-2 text-cyan-400">
-              Stock Scanner
-            </span>
+  return (
+    <motion.div
+      key={item.title}
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{
+        duration: 0.6,
+        delay: index * 0.12,
+      }}
+      viewport={{ once: true }}
+      whileHover={{
+        y: -8,
+        scale: 1.02,
+      }}
+      className="rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-xl transition-all hover:border-cyan-400/40 hover:bg-white/10"
+    >
+      <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-2xl bg-cyan-500/10">
 
-            <span className="rounded-full bg-cyan-500/10 px-5 py-2 text-cyan-400">
-              Premium Courses
-            </span>
+        <Icon className={`h-8 w-8 ${item.color}`} />
 
-          </div>
+      </div>
 
-        </div>
+      <h3 className="mb-4 text-2xl font-bold text-white">
+        {item.title}
+      </h3>
 
-        {/* Right Side */}
+      <p className="leading-7 text-gray-400">
+        {item.description}
+      </p>
 
-        <div className="rounded-3xl border border-cyan-500/20 bg-[#111827] p-12">
-
-          <h3 className="text-3xl font-bold text-white">
-            PAM AI Vision
-          </h3>
-
-          <ul className="mt-8 space-y-5 text-gray-300">
-
-            <li>✅ AI Powered Market Scanner</li>
-
-            <li>✅ Automated Trading Bots</li>
-
-            <li>✅ Professional Trading Dashboard</li>
-
-            <li>✅ Strategy Builder & Backtesting</li>
-
-            <li>✅ Portfolio Analytics</li>
-
-            <li>✅ AI Trading Assistant</li>
-
-            <li>✅ Learning Academy</li>
-
-            <li>✅ Premium Indicators</li>
-
-            <li>✅ Mobile Application</li>
-
-            <li>✅ Enterprise SaaS Platform</li>
-
-          </ul>
+    </motion.div>
+  );
+})}
 
         </div>
 
       </div>
+
     </section>
   );
 }

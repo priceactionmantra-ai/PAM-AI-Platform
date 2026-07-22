@@ -1,74 +1,113 @@
-export default function Stats() {
-  const stats = [
-    {
-      number: "50K+",
-      title: "Active Traders",
-      description: "Trusted community across India",
-    },
-    {
-      number: "120+",
-      title: "Premium Indicators",
-      description: "TradingView & MT4 tools",
-    },
-    {
-      number: "15+",
-      title: "AI Products",
-      description: "Complete AI ecosystem",
-    },
-    {
-      number: "98%",
-      title: "Customer Satisfaction",
-      description: "Professional support",
-    },
-  ];
+"use client";
 
+import { motion } from "framer-motion";
+import {
+  Bot,
+  TrendingUp,
+  Users,
+  ShieldCheck,
+} from "lucide-react";
+
+const stats = [
+  {
+    icon: TrendingUp,
+    value: "96.8%",
+    label: "AI Signal Accuracy",
+    color: "text-cyan-400",
+  },
+  {
+    icon: Bot,
+    value: "24+",
+    label: "Trading Bots",
+    color: "text-blue-400",
+  },
+  {
+    icon: Users,
+    value: "15K+",
+    label: "Community Members",
+    color: "text-purple-400",
+  },
+  {
+    icon: ShieldCheck,
+    value: "99.99%",
+    label: "Platform Uptime",
+    color: "text-green-400",
+  },
+];
+
+export default function Stats() {
   return (
-    <section className="bg-[#050816] py-24">
+    <section className="relative bg-[#050816] py-24">
+
       <div className="mx-auto max-w-7xl px-6">
 
-        <div className="text-center">
+        <motion.div
+          initial={{ opacity: 0, y: 25 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7 }}
+          viewport={{ once: true }}
+          className="mb-16 text-center"
+        >
 
-          <p className="font-semibold uppercase tracking-[6px] text-cyan-400">
+          <span className="rounded-full border border-cyan-500/30 bg-cyan-500/10 px-5 py-2 text-sm font-semibold tracking-wide text-cyan-400">
             PLATFORM STATISTICS
-          </p>
+          </span>
 
-          <h2 className="mt-4 text-5xl font-black text-white">
-            Trusted By Thousands Of Traders
+          <h2 className="mt-6 text-4xl font-black text-white md:text-5xl">
+            Trusted By Modern Traders
           </h2>
 
-          <p className="mx-auto mt-6 max-w-3xl text-xl leading-9 text-gray-400">
-            PAM AI Platform provides professional education,
-            AI-powered scanners, automated trading bots,
-            portfolio analytics and premium indicators
-            for serious traders and investors.
+          <p className="mx-auto mt-6 max-w-3xl text-lg leading-8 text-gray-400">
+            Powerful AI infrastructure built for professional traders,
+            investors and institutions.
           </p>
 
-        </div>
+        </motion.div>
 
-        <div className="mt-20 grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-8 md:grid-cols-2 xl:grid-cols-4">
 
-          {stats.map((item) => (
-            <div
-              key={item.title}
-              className="rounded-3xl border border-gray-800 bg-[#111827] p-10 text-center transition duration-300 hover:-translate-y-2 hover:border-cyan-400 hover:shadow-2xl hover:shadow-cyan-500/10"
-            >
-              <h3 className="text-5xl font-black text-cyan-400">
-                {item.number}
-              </h3>
+          {stats.map((item, index) => {
+            const Icon = item.icon;
 
-              <h4 className="mt-5 text-2xl font-bold text-white">
-                {item.title}
-              </h4>
+            return (
+              <motion.div
+                key={item.label}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{
+                  duration: 0.6,
+                  delay: index * 0.15,
+                }}
+                viewport={{ once: true }}
+                whileHover={{
+                  y: -8,
+                  scale: 1.02,
+                }}
+                className="rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-xl transition-all hover:border-cyan-400/30"
+              >
 
-              <p className="mt-4 text-gray-400">
-                {item.description}
-              </p>
-            </div>
-          ))}
+                <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-2xl bg-cyan-500/10">
+
+                  <Icon className={`h-8 w-8 ${item.color}`} />
+
+                </div>
+
+                <h3 className={`text-5xl font-black ${item.color}`}>
+                  {item.value}
+                </h3>
+
+                <p className="mt-4 text-lg text-gray-400">
+                  {item.label}
+                </p>
+
+              </motion.div>
+            );
+          })}
 
         </div>
 
       </div>
+
     </section>
   );
 }
