@@ -33,7 +33,7 @@ const metrics = [
 
 export default function DashboardPreview() {
   return (
-    <section className="relative bg-[#08101d] py-24">
+    <section className="relative bg-[#08101d] py-28">
 
       <div className="mx-auto grid max-w-7xl items-center gap-20 px-6 lg:grid-cols-2">
 
@@ -56,9 +56,8 @@ export default function DashboardPreview() {
           </h2>
 
           <p className="mt-8 text-lg leading-8 text-gray-400">
-            Manage your portfolio, monitor AI signals,
-            track strategy performance and automate your
-            trading from one enterprise dashboard.
+            Monitor your portfolio, AI signals, strategies and broker
+            accounts from one institutional-grade dashboard.
           </p>
 
           <div className="mt-10 space-y-5">
@@ -73,7 +72,7 @@ export default function DashboardPreview() {
             <div className="flex items-center gap-4">
               <TrendingUp className="h-7 w-7 text-green-400" />
               <span className="text-lg text-gray-300">
-                Real-time portfolio monitoring
+                Live portfolio monitoring
               </span>
             </div>
 
@@ -100,23 +99,25 @@ export default function DashboardPreview() {
   whileInView={{ opacity: 1, x: 0 }}
   transition={{ duration: 0.7 }}
   viewport={{ once: true }}
-  className="rounded-3xl border border-cyan-500/20 bg-gradient-to-br from-[#111827] to-[#0B1220] p-8 shadow-2xl"
+  className="rounded-3xl border border-cyan-500/20 bg-gradient-to-br from-[#111827] to-[#0B1220] p-8 shadow-2xl shadow-cyan-500/10"
 >
 
   <div className="mb-8 flex items-center justify-between">
 
     <div>
+
       <h3 className="text-2xl font-bold text-white">
         PAM AI Dashboard
       </h3>
 
       <p className="text-gray-400">
-        Live Platform Overview
+        Live Trading Overview
       </p>
+
     </div>
 
-    <div className="rounded-xl bg-cyan-500/10 px-4 py-2 text-cyan-400 font-semibold">
-      LIVE
+    <div className="rounded-xl bg-green-500/15 px-4 py-2 font-semibold text-green-400">
+      ● LIVE
     </div>
 
   </div>
@@ -127,16 +128,14 @@ export default function DashboardPreview() {
 
       <motion.div
         key={metric.title}
-        initial={{ opacity: 0, scale: 0.9 }}
+        initial={{ opacity: 0, scale: .9 }}
         whileInView={{ opacity: 1, scale: 1 }}
         transition={{
-          duration: 0.5,
-          delay: index * 0.1,
+          delay: index * .08,
+          duration: .4,
         }}
         viewport={{ once: true }}
-        whileHover={{
-          scale: 1.03,
-        }}
+        whileHover={{ scale: 1.03 }}
         className="rounded-2xl border border-white/10 bg-white/5 p-6"
       >
 
@@ -154,9 +153,9 @@ export default function DashboardPreview() {
 
   </div>
 
-  <div className="mt-10 space-y-6">
+  <div className="mt-10">
 
-    <div>
+    <div className="mb-6">
 
       <div className="mb-2 flex justify-between text-sm text-gray-400">
         <span>AI Confidence</span>
@@ -169,7 +168,7 @@ export default function DashboardPreview() {
 
     </div>
 
-    <div>
+    <div className="mb-6">
 
       <div className="mb-2 flex justify-between text-sm text-gray-400">
         <span>Portfolio Growth</span>
