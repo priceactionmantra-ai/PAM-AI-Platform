@@ -3,6 +3,7 @@ import OverviewCards from "@/components/dashboard/OverviewCards";
 import MarketStatus from "@/components/dashboard/MarketStatus";
 import PortfolioSummary from "@/components/dashboard/PortfolioSummary";
 import QuickActions from "@/components/dashboard/QuickActions";
+import Watchlist from "@/components/dashboard/Watchlist";
 
 export default function DashboardPage() {
   return (
@@ -22,15 +23,14 @@ export default function DashboardPage() {
 
         <OverviewCards />
 
-        <div className="grid gap-8 xl:grid-cols-2">
+<div className="grid gap-8 xl:grid-cols-2">
+  <MarketStatus />
+  <PortfolioSummary />
+</div>
 
-          <MarketStatus />
+<Watchlist />
 
-          <PortfolioSummary />
-
-        </div>
-
-        <QuickActions />
+<QuickActions />
 
       </div>
 
