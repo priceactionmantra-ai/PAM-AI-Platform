@@ -1,19 +1,20 @@
 import DashboardLayout from "@/components/dashboard/DashboardLayout";
 import OverviewCards from "@/components/dashboard/OverviewCards";
+import MarketChart from "@/components/dashboard/MarketChart";
 import MarketStatus from "@/components/dashboard/MarketStatus";
 import PortfolioSummary from "@/components/dashboard/PortfolioSummary";
-import QuickActions from "@/components/dashboard/QuickActions";
 import Watchlist from "@/components/dashboard/Watchlist";
 import AIScanner from "@/components/dashboard/AIScanner";
 import AISignalDetails from "@/components/dashboard/AISignalDetails";
 import RecentTrades from "@/components/dashboard/RecentTrades";
+import QuickActions from "@/components/dashboard/QuickActions";
 
 export default function DashboardPage() {
   return (
     <DashboardLayout>
-
       <div className="space-y-8">
 
+        {/* Page Header */}
         <div>
           <h1 className="text-4xl font-black text-white">
             Dashboard
@@ -24,29 +25,34 @@ export default function DashboardPage() {
           </p>
         </div>
 
+        {/* Overview Cards */}
         <OverviewCards />
 
-<div className="grid gap-8 xl:grid-cols-2">
-  <MarketStatus />
-  <PortfolioSummary />
-</div>
+        {/* Professional Market Chart */}
+        <MarketChart />
 
-<Watchlist />
+        {/* Market Status + Portfolio */}
+        <div className="grid gap-8 xl:grid-cols-2">
+          <MarketStatus />
+          <PortfolioSummary />
+        </div>
 
-<div className="grid gap-8 xl:grid-cols-2">
+        {/* Watchlist */}
+        <Watchlist />
 
-  <AIScanner />
+        {/* AI Section */}
+        <div className="grid gap-8 xl:grid-cols-2">
+          <AIScanner />
+          <AISignalDetails />
+        </div>
 
-  <AISignalDetails />
+        {/* Recent Trades */}
+        <RecentTrades />
 
-</div>
-
-<RecentTrades />
-
-<QuickActions />
+        {/* Quick Actions */}
+        <QuickActions />
 
       </div>
-
     </DashboardLayout>
   );
 }
