@@ -4,6 +4,9 @@ import MarketStatus from "@/components/dashboard/MarketStatus";
 import PortfolioSummary from "@/components/dashboard/PortfolioSummary";
 import QuickActions from "@/components/dashboard/QuickActions";
 import Watchlist from "@/components/dashboard/Watchlist";
+import AIScanner from "@/components/dashboard/AIScanner";
+import AISignalDetails from "@/components/dashboard/AISignalDetails";
+import RecentTrades from "@/components/dashboard/RecentTrades";
 
 export default function DashboardPage() {
   return (
@@ -29,6 +32,16 @@ export default function DashboardPage() {
 </div>
 
 <Watchlist />
+
+<div className="grid gap-8 xl:grid-cols-2">
+
+  <AIScanner />
+
+  <AISignalDetails />
+
+</div>
+
+<RecentTrades />
 
 <QuickActions />
 
