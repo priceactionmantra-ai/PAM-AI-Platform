@@ -1,12 +1,13 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
+from app.api.v1.router import router as api_router
+
 app = FastAPI(
     title="PAM AI Platform Backend",
     version="1.0.0",
 )
 
-# Allow requests from Next.js
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
@@ -16,6 +17,12 @@ app.add_middleware(
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
+)
+
+# API Version 1
+app.include_router(
+    api_router,
+    prefix="/api/v1",
 )
 
 
